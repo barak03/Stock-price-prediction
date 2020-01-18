@@ -668,14 +668,10 @@ while (True):
         time1 = datetime.datetime.now().astimezone(timezone('America/New_York')).time()
 
         if ((time1) >= (end_work_time)):
-            print("Work day is over please check your mail and files \n")
-
             with open("real result.csv", 'w') as f:
                 wr = csv.writer(f)
                 wr.writerows(real_result)
-
             f.close()
+            
             print(real_result)
-            barak.send_mail_with_file(file_name="real result.csv", Subject="real results csv file",
-                                      Body="hi please dont delete this file ")
             quit()
